@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/common/SearchBar.tsx",
+    "components/products/NewArrivals.tsx",
+    "components/products/ProductDetails.jsx",
+    "components/products/ProductGrid.tsx",
+    "components/pages/Home.tsx",
+    "app/checkout/page.jsx",
+    "components/cart/PaypalButton.jsx",
+    "app/OrderDetailsPage/[OrderDetailsPage]/page.jsx",
+    "app/order/[id]/page.jsx",
+    "app/admin/page.jsx",
+    "app/admin/layout.jsx",
+    "lib/features/todos/authSlice.ts",
+    "lib/features/todos/productsSlice.ts",
+    "lib/features/todos/cartSlice.ts"
+, "app/my-orders/page.jsx", "lib/features/todos/orderSlice.js", "components/layout/CartDrawer.jsx", "components/common/Navbar.jsx", "lib/features/todos/adminSlice.js", "app/admin/users/page.jsx", "app/admin/products/[id]/edit/page.jsx", "app/admin/orders/page.jsx", "lib/features/todos/adminOrderSlice.js", "app/admin/products/page.jsx", "app/login/page.jsx", "app/register/page.jsx", "lib/features/todos/checkoutSlice.js", "app/product/[id]/page.tsx"  ],
+  "exclude": ["node_modules"]
+}
