@@ -1,84 +1,15 @@
-# 🛍️ RABBIT — E-commerce Web App
-
-Bienvenido a **Rabbit**, una tienda en línea moderna construida con **Next.js 14**, **TypeScript**, y un diseño limpio centrado en la experiencia del usuario.
-
-Este proyecto simula una tienda de ropa donde puedes explorar productos, ver detalles individuales, aplicar filtros por género o categoría y mucho más. Ideal para practicar desarrollo fullstack con una arquitectura escalable.
-
----
-
-## 🚀 Tecnologías Usadas
-
-- **TypeScript & Javascript** — Tipado estático para mayor seguridad
-- **Next.js 15** — App Router, SSR y CSR combinados
-- **Redux Toolkit** — Manejo global de estado para productos
-- **Tailwind CSS** — Estilos rápidos y responsivos
-- **Axios** — Llamadas HTTP al backend
-- **Sonner** — Notificaciones suaves y modernas
-- **Sanity (opcional)** — CMS para manejar productos dinámicos
-- **Node.js + Express** (en `/backend`) — API simulada
-
----
-
-## 📂 Estructura del Proyecto
-
-📦 rabbit/
-┣ 🗂️ backend/ → Express + MongoDB (o mock) para API REST
-┣ 🗂️ frontend/
-┃ ┣ 🗂️ app/ → App Router de Next.js
-┃ ┣ 🗂️ components/ → Componentes reutilizables
-┃ ┣ 🗂️ lib/ → Hooks, slices y tipos
-┃ ┣ 🗂️ public/ → Assets públicos
-┃ ┗ 🗂️ pages/ → Rutas legacy o estáticas
-┣ 📄 package.json
-┣ 📄 .env.local
-┗ 📄 README.md
-
-
----
-
-## 🧪 Funcionalidades Actuales
-
-- [x] Página de inicio con hero y colecciones destacadas
-- [x] Render dinámico de productos desde mock API
-- [x] Sección de "Best Seller" dinámica
-- [x] Vista de detalles del producto con imágenes, tallas y colores
-- [x] Grid de productos filtrados por género y categoría
-- [x] Lógica de carrito
-- [x] Notificaciones personalizadas con `sonner`
-
----
-
-## 🛠️ Instalación Local
-
-```bash
-# Clona el repositorio
-git clone https://github.com/eduardolluis/rabbit-app
-cd rabbit
-
-# Instala dependencias
-npm install
-
-# Ejecuta en modo desarrollo
-npm run dev
-
-Crea un archivo .env.local en la raíz del proyecto con esta variable de entorno (si usas backend real):
-
-NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
-
-📦 Backend (opcional)
-
-Si estás usando el backend incluido en /backend, ejecuta:
-
-cd backend
-npm install
-npm run dev
-
-
-
-
-
-📃 Licencia
-
-Este proyecto es solo para fines educativos y personales.
-
-
+<img width="1440" height="785" alt="Screenshot 2025-11-26 at 9 00 00 PM" src="https://github.com/user-attachments/assets/2b21d3d7-6563-4715-bf93-e4cad7a0074c" />
+<img width="1374" height="755" alt="Screenshot 2025-11-26 at 9 00 26 PM" src="https://github.com/user-attachments/assets/8161e4d8-99cd-458b-9e3d-44c5d72f9233" />
+<img width="1440" height="782" alt="Screenshot 2025-11-26 at 9 00 42 PM" src="https://github.com/user-attachments/assets/39e2311d-2f3c-44a4-8e85-99d53c74c244" />
+<img width="1440" height="782" alt="Screenshot 2025-11-26 at 9 00 52 PM" src="https://github.com/user-attachments/assets/dcb83317-a1f7-4e49-b988-bc8cf020572c" />
+<img width="1440" height="668" alt="Screenshot 2025-11-26 at 9 01 25 PM" src="https://github.com/user-attachments/assets/ee8adbfd-2b7b-4049-ad05-ca70f81393d9" />
+<img width="901" height="576" alt="Screenshot 2025-11-26 at 9 01 43 PM" src="https://github.com/user-attachments/assets/68b380a9-e6b5-411c-ad95-c0a6e2ac36c8" />
+<img width="841" height="723" alt="Screenshot 2025-11-26 at 9 01 52 PM" src="https://github.com/user-attachments/assets/d81229b9-4a37-465d-ae38-cecd47b51850" />
+<img width="1440" height="784" alt="Screenshot 2025-11-26 at 9 02 16 PM" src="https://github.com/user-attachments/assets/e1ece08b-e8a8-4444-934c-946dc35e2f41" />
+<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 02 27 PM" src="https://github.com/user-attachments/assets/a9b3633c-6704-4c52-88eb-b45ad29dfbbd" />
+<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 02 47 PM" src="https://github.com/user-attachments/assets/344ae9d6-78dc-4c8f-8624-0aaccfc81273" />
+<img width="360" height="783" alt="Screenshot 2025-11-26 at 9 02 54 PM" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
+<img width="1436" height="785" alt="Screenshot 2025-11-26 at 9 03 11 PM" src="https://github.com/user-attachments/assets/78078ba3-6421-4d73-af58-fca19e3b8f36" />
+<img width="1440" height="771" alt="Screenshot 2025-11-26 at 9 04 20 PM" src="https://github.com/user-attachments/assets/1caba55f-6a5f-4ee1-b1d2-8cbba95f0216" />
+<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 04 54 PM" src="https://github.com/user-attachments/assets/2e01e2e1-fbb1-4714-bdfe-b4dbad6884cd" />
+<img width="1436" height="784" alt="Screenshot 2025-11-26 at 9 07 58 PM" src="https://github.com/user-attachments/assets/f5d65761-bfa4-42ee-962f-c4518a05ef15" />
