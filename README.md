@@ -1,15 +1,62 @@
-<img width="1440" height="785" alt="Screenshot 2025-11-26 at 9 00 00 PM" src="https://github.com/user-attachments/assets/2b21d3d7-6563-4715-bf93-e4cad7a0074c" />
-<img width="1374" height="755" alt="Screenshot 2025-11-26 at 9 00 26 PM" src="https://github.com/user-attachments/assets/8161e4d8-99cd-458b-9e3d-44c5d72f9233" />
-<img width="1440" height="782" alt="Screenshot 2025-11-26 at 9 00 42 PM" src="https://github.com/user-attachments/assets/39e2311d-2f3c-44a4-8e85-99d53c74c244" />
-<img width="1440" height="782" alt="Screenshot 2025-11-26 at 9 00 52 PM" src="https://github.com/user-attachments/assets/dcb83317-a1f7-4e49-b988-bc8cf020572c" />
-<img width="1440" height="668" alt="Screenshot 2025-11-26 at 9 01 25 PM" src="https://github.com/user-attachments/assets/ee8adbfd-2b7b-4049-ad05-ca70f81393d9" />
-<img width="901" height="576" alt="Screenshot 2025-11-26 at 9 01 43 PM" src="https://github.com/user-attachments/assets/68b380a9-e6b5-411c-ad95-c0a6e2ac36c8" />
-<img width="841" height="723" alt="Screenshot 2025-11-26 at 9 01 52 PM" src="https://github.com/user-attachments/assets/d81229b9-4a37-465d-ae38-cecd47b51850" />
-<img width="1440" height="784" alt="Screenshot 2025-11-26 at 9 02 16 PM" src="https://github.com/user-attachments/assets/e1ece08b-e8a8-4444-934c-946dc35e2f41" />
-<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 02 27 PM" src="https://github.com/user-attachments/assets/a9b3633c-6704-4c52-88eb-b45ad29dfbbd" />
-<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 02 47 PM" src="https://github.com/user-attachments/assets/344ae9d6-78dc-4c8f-8624-0aaccfc81273" />
-<img width="360" height="783" alt="Screenshot 2025-11-26 at 9 02 54 PM" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
-<img width="1436" height="785" alt="Screenshot 2025-11-26 at 9 03 11 PM" src="https://github.com/user-attachments/assets/78078ba3-6421-4d73-af58-fca19e3b8f36" />
-<img width="1440" height="771" alt="Screenshot 2025-11-26 at 9 04 20 PM" src="https://github.com/user-attachments/assets/1caba55f-6a5f-4ee1-b1d2-8cbba95f0216" />
-<img width="1440" height="786" alt="Screenshot 2025-11-26 at 9 04 54 PM" src="https://github.com/user-attachments/assets/2e01e2e1-fbb1-4714-bdfe-b4dbad6884cd" />
-<img width="1436" height="784" alt="Screenshot 2025-11-26 at 9 07 58 PM" src="https://github.com/user-attachments/assets/f5d65761-bfa4-42ee-962f-c4518a05ef15" />
+# Rabbit App
+
+A full-stack e-commerce application with a **Next.js frontend** and an **Express/MongoDB backend**.
+
+## Features
+
+- Product catalog and product routes
+- User authentication
+- Shopping cart
+- Checkout and orders
+- PayPal integration
+- Product image uploads with Cloudinary
+- Admin user, product, and order routes
+- Newsletter subscription endpoint
+- Redux-based frontend state management
+
+## Tech Stack
+
+### Frontend
+- Next.js 15
+- React 19
+- TypeScript
+- Redux Toolkit
+- Tailwind CSS
+- Axios
+- PayPal React SDK
+
+### Backend
+- Node.js
+- Express 5
+- MongoDB / Mongoose
+- JWT
+- bcrypt
+- Cloudinary
+- Multer
+
+## Screenshots
+
+<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/2b21d3d7-6563-4715-bf93-e4cad7a0074c" />
+<img width="1374" alt="Rabbit App" src="https://github.com/user-attachments/assets/8161e4d8-99cd-458b-9e3d-44c5d72f9233" />
+<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/39e2311d-2f3c-44a4-8e85-99d53c74c244" />
+<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/dcb83317-a1f7-4e49-b988-bc8cf020572c" />
+<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/e1ece08b-e8a8-4444-934c-946dc35e2f41" />
+<img width="360" alt="Rabbit App mobile view" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
+
+## Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/eduardolluis/rabbit-app.git
+cd rabbit-app
+```
+
+Install and run the frontend from `frontend/`, and install/run the API from `backend/`. Configure the required MongoDB, JWT, Cloudinary, and payment environment variables before using the full application.
+
+---
+
+## Author
+
+**Eduardo De La Cruz**  
+[Portfolio](https://portfolio-one-blue-anckqnppbh.vercel.app/) · [GitHub](https://github.com/eduardolluis) · [LinkedIn](https://www.linkedin.com/in/eduardo-de-la-cruz-b6171837a/)
