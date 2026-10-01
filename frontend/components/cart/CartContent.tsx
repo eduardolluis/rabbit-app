@@ -41,81 +41,98 @@ const CartContent: FC<CartContentProps> = ({ cart, userId, guestId }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="w-full">
       {cart.products.map((product, index) => (
         <div
           key={index}
-          className="flex items-center justify-between py-4 border-b border-gray-200 gap-4"
+          className="grid grid-cols-[84px_minmax(0,1fr)] gap-4 py-5 border-b border-gray-200"
         >
-          {/* Imagen del producto */}
-          <div className="flex-shrink-0">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-20 h-24 object-cover rounded"
-            />
-          </div>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-[84px] h-28 object-cover rounded-md bg-gray-100"
+            onError={(e) => {
+              e.currentTarget.src = "/product-placeholder.svg";
+            }}
+          />
 
-          {/* Información del producto */}
-          <div className="flex-1 min-w-0">
-            <h3 className="font-medium text-gray-900 mb-1">{product.name}</h3>
-            <p className="text-sm text-gray-500">
-              Size: {product.size} | Color: {product.color}
-            </p>
-          </div>
+          <div className="min-w-0 flex flex-col gap-3">
+            <div className="min-w-0">
+              <h3 className="font-semibold text-gray-900 leading-snug break-words">
+                {product.name}
+              </h3>
 
-          {/* Controles de cantidad */}
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={() =>
-                handleAddToCart(
-                  product.productId,
-                  -1,
-                  product.quantity,
-                  product.size,
-                  product.color
-                )
-              }
-              className="border border-gray-300 rounded w-8 h-8 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-transform duration-300 cursor-pointer  hover:scale-110"
-            >
-              -
-            </button>
-            <span className="w-8 text-center font-medium">
-              {product.quantity}
-            </span>
-            <button
-              onClick={() =>
-                handleAddToCart(
-                  product.productId,
-                  1,
-                  product.quantity,
-                  product.size,
-                  product.color
-                )
-              }
-              className="border border-gray-300 rounded w-8 h-8 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-transform duration-300 cursor-pointer  hover:scale-110"
-            >
-              +
-            </button>
-          </div>
+              <div className="mt-1 text-sm text-gray-500 leading-5">
+                <p>
+                  <span className="font-medium text-gray-600">Size:</span>{" "}
+                  {product.size}
+                </p>
+                <p>
+                  <span className="font-medium text-gray-600">Color:</span>{" "}
+                  {product.color}
+                </p>
+              </div>
+            </div>
 
-          {/* Precio y botón eliminar */}
-          <div className="flex flex-col items-end space-y-2">
-            <p className="font-semibold text-gray-900">
-              ${product.price.toLocaleString()}
-            </p>
-            <button
-              onClick={() =>
-                handleRemoveFromCart(
-                  product.productId,
-                  product.size,
-                  product.color
-                )
-              }
-              className="text-gray-400 hover:text-red-500 transition-colors transition-transform duration-300 cursor-pointer  hover:scale-110"
-            >
-              <RiDeleteBin3Line className="h-5 w-5" />
-            </button>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  onClick={() =>
+                    handleAddToCart(
+                      product.productId,
+                      -1,
+                      product.quantity,
+                      product.size,
+                      product.color
+                    )
+                  }
+                  className="border border-gray-300 rounded-md w-8 h-8 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+                  aria-label={`Decrease quantity of ${product.name}`}
+                >
+                  -
+                </button>
+
+                <span className="min-w-7 text-center font-medium text-gray-900">
+                  {product.quantity}
+                </span>
+
+                <button
+                  onClick={() =>
+                    handleAddToCart(
+                      product.productId,
+                      1,
+                      product.quantity,
+                      product.size,
+                      product.color
+                    )
+                  }
+                  className="border border-gray-300 rounded-md w-8 h-8 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+                  aria-label={`Increase quantity of ${product.name}`}
+                >
+                  +
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <p className="font-semibold text-gray-900 whitespace-nowrap">
+                  ${product.price.toLocaleString()}
+                </p>
+
+                <button
+                  onClick={() =>
+                    handleRemoveFromCart(
+                      product.productId,
+                      product.size,
+                      product.color
+                    )
+                  }
+                  className="text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                  aria-label={`Remove ${product.name} from cart`}
+                >
+                  <RiDeleteBin3Line className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ))}
