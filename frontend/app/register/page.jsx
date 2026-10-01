@@ -27,7 +27,7 @@ const Register = () => {
   useEffect(() => {
     if (user) {
       if (cart?.products.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, user })).then(() => {
+        dispatch(mergeCart({ guestId, userId: user._id || user.id })).then(() => {
           router.push(isCheckoutRedirect ? "/checkout" : "/");
         });
       } else {
@@ -40,42 +40,19 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(registerUser({ name, email, password }));
 
-    // Basic validation
     if (!email || !name || !password) {
       alert("Please fill in all fields");
       return;
     }
 
-    // Debugging logs
-    console.log("Attempting registration with:", {
-      name,
-      email,
-      password: "***",
-    });
-    console.log("Backend URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
-
-    try {
-      // Dispatch the registerUser thunk
-      const result = await dispatch(
-        registerUser({
-          name,
-          email,
-          password,
-        })
-      );
-
-      console.log("Registration result:", result);
-
-      // Check if registration was successful
-      if (registerUser.fulfilled.match(result)) {
-        console.log("Registration successful!");
-        // You might want to redirect to login or dashboard here
-      }
-    } catch (error) {
-      console.error("Registration error:", error);
-    }
+    await dispatch(
+      registerUser({
+        name,
+        email,
+        password,
+      })
+    );
   };
 
   return (
