@@ -32,7 +32,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
       <div
         className={`fixed top-0 right-0 h-full bg-white shadow-lg transform transition-transform duration-300 flex flex-col z-50 ${
           drawerOpen ? "translate-x-0" : "translate-x-full"
-        } w-full sm:w-80 md:w-96 lg:w-1/4 xl:w-1/4`}
+        } w-full sm:w-[380px] md:w-[420px] lg:w-[440px] xl:w-[460px] max-w-full`}
       >
         {/* Close button */}
         <div className="flex justify-end p-4 border-b border-gray-100">
@@ -45,8 +45,8 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
         </div>
 
         {/* Cart contents with scrollable area */}
-        <div className="flex-grow p-4 overflow-y-auto">
-          <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
+        <div className="flex-grow px-5 py-4 overflow-y-auto">
+          <h2 className="text-2xl font-semibold mb-2">Your Cart</h2>
           {cart && cart?.products.length > 0 ? (
             <CartContent cart={cart} userId={userId} guestId={guestId} />
           ) : (
@@ -55,7 +55,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
         </div>
 
         {/* Checkout button - sticky at bottom */}
-        <div className="p-4 bg-white border-t border-gray-100 sticky bottom-0">
+        <div className="px-5 py-4 bg-white border-t border-gray-100 sticky bottom-0">
           {cart && cart?.products.length > 0 && (
             <>
               <button
