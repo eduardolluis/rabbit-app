@@ -143,6 +143,9 @@ export default function ProductDetails({ productId }) {
                     mainImage === image.url ? "border-black" : "border-gray-300"
                   }`}
                   onClick={() => setMainImage(image.url)}
+                  onError={(e) => {
+                    e.currentTarget.src = "/product-placeholder.svg";
+                  }}
                 />
               ))}
             </div>
@@ -152,8 +155,11 @@ export default function ProductDetails({ productId }) {
               <div className="mb-4">
                 {mainImage && (
                   <img
-                    src={mainImage}
+                    src={mainImage || "/product-placeholder.svg"}
                     alt={selectedProduct.name || "Product"}
+                    onError={(e) => {
+                      e.currentTarget.src = "/product-placeholder.svg";
+                    }}
                     className="w-full h-auto object-cover rounded-lg transition-opacity duration-300 ease-in-out"
                   />
                 )}
@@ -171,6 +177,9 @@ export default function ProductDetails({ productId }) {
                     mainImage === image.url ? "border-black" : "border-gray-300"
                   }`}
                   onClick={() => setMainImage(image.url)}
+                  onError={(e) => {
+                    e.currentTarget.src = "/product-placeholder.svg";
+                  }}
                 />
               ))}
             </div>
