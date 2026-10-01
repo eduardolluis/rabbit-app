@@ -856,7 +856,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1571513722275-4b9cfe8c9116?w=500&h=500&fit=crop&crop=center",
+        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop&crop=center",
         altText: "Lace-Trimmed Cami Top",
       },
     ],
@@ -904,7 +904,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1594633313593-bab3ac4bae94?w=500&h=500&fit=crop&crop=center",
+        url: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=500&fit=crop&crop=center",
         altText: "Ribbed Long-Sleeve Top",
       },
     ],
