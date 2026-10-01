@@ -1,90 +1,87 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getDemoOrderById, getDemoOrdersForUser } from "@/lib/demoStore";
 
-// Helper: obtener token del localStorage
-const getAuthToken = () => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("userToken");
+const getStoredUser = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const value = localStorage.getItem("userInfo");
+    return value ? JSON.parse(value) : null;
+  } catch {
+    return null;
   }
-  return null;
 };
 
-// Thunk: obtener órdenes del usuario
 export const fetchUserOrders = createAsyncThunk(
   "orders/fetchUserOrders",
-  async (_, { rejectWithValue }) => {
-    try {
-      const token = getAuthToken();
+  async () => {
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("userToken") : null;
 
-      if (!token) {
-        return rejectWithValue("No authentication token found");
-      }
-
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders/my-orders`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      // Asumiendo que response.data tiene la forma { success: true, orders: [...], totalOrders: number }
-      return response.data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const errorMessage = error.response?.data?.message || error.message;
-        const statusCode = error.response?.status;
-
-        return rejectWithValue(
-          `${statusCode ? `${statusCode}: ` : ""}${errorMessage}`
+    if (token) {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders/my-orders`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
         );
-      }
 
-      return rejectWithValue("An unexpected error occurred");
+        if (Array.isArray(response.data)) {
+          return {
+            success: true,
+            orders: response.data,
+            totalOrders: response.data.length,
+          };
+        }
+
+        return response.data;
+      } catch {
+        // Fall back to browser-persisted demo orders.
+      }
     }
+
+    const orders = getDemoOrdersForUser(getStoredUser());
+    return {
+      success: true,
+      orders,
+      totalOrders: orders.length,
+      demo: true,
+    };
   }
 );
 
-// Thunk: obtener detalles de una orden específica
 export const fetchOrderDetails = createAsyncThunk(
   "orders/fetchOrderDetails",
   async (orderId, { rejectWithValue }) => {
-    try {
-      const token = getAuthToken();
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("userToken") : null;
 
-      if (!token) {
-        return rejectWithValue("No authentication token found");
-      }
-
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders/${orderId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      return response.data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const errorMessage = error.response?.data?.message || error.message;
-        const statusCode = error.response?.status;
-
-        return rejectWithValue(
-          `${statusCode ? `${statusCode}: ` : ""}${errorMessage}`
+    if (token) {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders/${orderId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
         );
+        return response.data;
+      } catch {
+        // Fall back to local demo order.
       }
-
-      return rejectWithValue("An unexpected error occurred");
     }
+
+    const order = getDemoOrderById(orderId);
+    return order || rejectWithValue("Order not found");
   }
 );
 
-// Estado inicial
 const initialState = {
   orders: [],
   totalOrders: 0,
@@ -93,7 +90,6 @@ const initialState = {
   error: null,
 };
 
-// Slice
 const ordersSlice = createSlice({
   name: "orders",
   initialState,
@@ -111,15 +107,16 @@ const ordersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch user orders
       .addCase(fetchUserOrders.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(fetchUserOrders.fulfilled, (state, action) => {
         state.loading = false;
-        const rawOrders = action.payload.orders || [];
-        // Filtrar solo órdenes con orderItems no vacíos
+        const rawOrders = Array.isArray(action.payload)
+          ? action.payload
+          : action.payload?.orders || [];
+
         state.orders = rawOrders.filter(
           (order) =>
             Array.isArray(order.orderItems) && order.orderItems.length > 0
@@ -130,10 +127,7 @@ const ordersSlice = createSlice({
       .addCase(fetchUserOrders.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Failed to fetch orders";
-        console.error("fetchUserOrders rejected:", action.payload);
       })
-
-      // Fetch order details
       .addCase(fetchOrderDetails.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -146,7 +140,6 @@ const ordersSlice = createSlice({
       .addCase(fetchOrderDetails.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Failed to fetch order details";
-        console.error("fetchOrderDetails rejected:", action.payload);
       });
   },
 });

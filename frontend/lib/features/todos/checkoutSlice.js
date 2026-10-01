@@ -1,10 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Async thunk para crear una sesión de checkout
+const createLocalCheckout = (checkoutData) => ({
+  _id: `DEMO-CHECKOUT-${Date.now()}`,
+  id: `DEMO-CHECKOUT-${Date.now()}`,
+  ...checkoutData,
+  createdAt: new Date().toISOString(),
+  demo: true,
+});
+
 export const createCheckout = createAsyncThunk(
   "checkout/createCheckout",
-  async (checkoutData, { rejectWithValue }) => {
+  async (checkoutData) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/checkout`,
@@ -16,11 +23,8 @@ export const createCheckout = createAsyncThunk(
         }
       );
       return response.data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(error.response?.data || error.message);
-      }
-      return rejectWithValue("An unexpected error occurred");
+    } catch {
+      return createLocalCheckout(checkoutData);
     }
   }
 );
@@ -34,7 +38,16 @@ const initialState = {
 const checkoutSlice = createSlice({
   name: "checkout",
   initialState,
-  reducers: {},
+  reducers: {
+    setCheckout: (state, action) => {
+      state.checkout = action.payload;
+      state.error = null;
+    },
+    clearCheckout: (state) => {
+      state.checkout = null;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createCheckout.pending, (state) => {
@@ -44,12 +57,14 @@ const checkoutSlice = createSlice({
       .addCase(createCheckout.fulfilled, (state, action) => {
         state.loading = false;
         state.checkout = action.payload;
+        state.error = null;
       })
-      .addCase(createCheckout.rejected, (state, action) => {
+      .addCase(createCheckout.rejected, (state) => {
         state.loading = false;
-        state.error = action.payload?.message || "Checkout failed";
+        state.error = "Checkout failed";
       });
   },
 });
 
+export const { setCheckout, clearCheckout } = checkoutSlice.actions;
 export default checkoutSlice.reducer;

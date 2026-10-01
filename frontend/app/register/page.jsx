@@ -1,12 +1,12 @@
 "use client";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import register from "@/public/assets/register.webp";
 import Image from "next/image";
 import { registerUser } from "@/lib/features/todos/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAppSelector } from "@/lib/hooks";
 import { mergeCart } from "@/lib/features/todos/cartSlice";
 
@@ -16,43 +16,36 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const { user, guestId } = useAppSelector((state) => state.auth);
-  const { cart } = useAppSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const { user, guestId, loading, error } = useAppSelector(
+    (state) => state.auth
+  );
+  const { cart } = useAppSelector((state) => state.cart);
 
   const redirect = searchParams.get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
-    if (user) {
-      if (cart?.products.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, userId: user._id || user.id })).then(() => {
-          router.push(isCheckoutRedirect ? "/checkout" : "/");
-        });
-      } else {
-        router.push(isCheckoutRedirect ? "/checkout" : "/");
-      }
+    if (!user) return;
+
+    const destination = isCheckoutRedirect ? "/checkout" : redirect || "/";
+
+    if (cart?.products?.length > 0 && guestId) {
+      dispatch(mergeCart({ guestId, userId: user._id || user.id })).finally(
+        () => router.push(destination)
+      );
+    } else {
+      router.push(destination);
     }
-  }, [user, guestId, cart, router, isCheckoutRedirect, dispatch]);
-  // Redux hooks
-  const { loading, error } = useSelector((state) => state.auth);
+  }, [user, guestId, cart, router, redirect, isCheckoutRedirect, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !name || !password) {
-      alert("Please fill in all fields");
-      return;
-    }
+    if (!email || !name || !password) return;
 
-    await dispatch(
-      registerUser({
-        name,
-        email,
-        password,
-      })
-    );
+    await dispatch(registerUser({ name, email, password }));
   };
 
   return (
@@ -65,12 +58,12 @@ const Register = () => {
           <div className="flex justify-center mb-6">
             <h2 className="text-xl font-medium">Rabbit</h2>
           </div>
-          <h2 className="text-2xl font-bold text-center mb-6">Hey there! 👋🏼</h2>
+
+          <h1 className="text-2xl font-bold text-center mb-6">Hey there! 👋🏼</h1>
           <p className="text-center mb-6">
             Enter your details to create your account.
           </p>
 
-          {/* Error message display */}
           {error && (
             <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
               {error}
@@ -89,6 +82,7 @@ const Register = () => {
               disabled={loading}
             />
           </div>
+
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2">Email</label>
             <input
@@ -101,6 +95,7 @@ const Register = () => {
               disabled={loading}
             />
           </div>
+
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2">Password</label>
             <input
@@ -110,9 +105,11 @@ const Register = () => {
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter your password"
               required
+              minLength={6}
               disabled={loading}
             />
           </div>
+
           <button
             type="submit"
             disabled={loading}
@@ -121,7 +118,6 @@ const Register = () => {
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
 
-          {/* Texto centrado con link */}
           <p className="mt-6 text-center text-sm">Already have an account?</p>
           <div className="text-center">
             <Link
@@ -133,12 +129,14 @@ const Register = () => {
           </div>
         </form>
       </div>
+
       <div className="hidden md:block w-1/2 bg-gray-800">
         <div className="h-full flex flex-col justify-center items-center">
           <Image
             src={register}
             alt="Register Your Account"
             className="h-[950px] w-full object-cover"
+            priority
           />
         </div>
       </div>

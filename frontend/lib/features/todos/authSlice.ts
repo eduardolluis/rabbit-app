@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
+import { loginDemoUser, registerDemoUser } from "@/lib/demoStore";
 
-// Tipos
 interface User {
   id?: string;
   _id?: string;
   email: string;
   name?: string;
   role?: string;
-  // Removí [key: string]: any; para eliminar el tipo any
 }
 
 interface AuthState {
@@ -33,24 +32,20 @@ interface ApiErrorResponse {
   error?: string;
 }
 
-// Retrieve user info and token from localstorage if available (SSR-safe)
 const userFromStorage =
   typeof window !== "undefined" && localStorage.getItem("userInfo")
     ? (JSON.parse(localStorage.getItem("userInfo")!) as User)
     : null;
 
-// Check for an existing guest Id in the localstorage or generate a new one (SSR-safe)
 const initialGuestId =
   typeof window !== "undefined"
     ? localStorage.getItem("guestId") || `guest_${new Date().getTime()}`
     : `guest_${new Date().getTime()}`;
 
-// Only set localStorage if we're in the browser
 if (typeof window !== "undefined") {
   localStorage.setItem("guestId", initialGuestId);
 }
 
-// Initial state
 const initialState: AuthState = {
   user: userFromStorage,
   guestId: initialGuestId,
@@ -58,7 +53,11 @@ const initialState: AuthState = {
   error: null,
 };
 
-// Async thunk for user login
+const shouldUseDemoFallback = (error: AxiosError<ApiErrorResponse>) => {
+  const status = error.response?.status;
+  return !error.response || status === 404 || status === 502 || status === 503;
+};
+
 export const loginUser = createAsyncThunk<
   User,
   { email: string; password: string },
@@ -78,6 +77,20 @@ export const loginUser = createAsyncThunk<
     return response.data.user;
   } catch (error) {
     const axiosError = error as AxiosError<ApiErrorResponse>;
+
+    if (shouldUseDemoFallback(axiosError)) {
+      try {
+        const fallback = await loginDemoUser(userData);
+        localStorage.setItem("userInfo", JSON.stringify(fallback.user));
+        localStorage.setItem("userToken", fallback.token);
+        return fallback.user;
+      } catch (fallbackError) {
+        return rejectWithValue(
+          fallbackError instanceof Error ? fallbackError.message : "Login failed"
+        );
+      }
+    }
+
     return rejectWithValue(
       axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
@@ -86,7 +99,6 @@ export const loginUser = createAsyncThunk<
   }
 });
 
-// Async thunk for user registration
 export const registerUser = createAsyncThunk<
   User,
   { email: string; password: string; name?: string },
@@ -106,23 +118,41 @@ export const registerUser = createAsyncThunk<
     return response.data.user;
   } catch (error) {
     const axiosError = error as AxiosError<ApiErrorResponse>;
+
+    if (shouldUseDemoFallback(axiosError)) {
+      try {
+        const fallback = await registerDemoUser({
+          name: userData.name || "Rabbit User",
+          email: userData.email,
+          password: userData.password,
+        });
+        localStorage.setItem("userInfo", JSON.stringify(fallback.user));
+        localStorage.setItem("userToken", fallback.token);
+        return fallback.user;
+      } catch (fallbackError) {
+        return rejectWithValue(
+          fallbackError instanceof Error
+            ? fallbackError.message
+            : "Registration failed"
+        );
+      }
+    }
+
     return rejectWithValue(
       axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
-        (axiosError.response?.status
-          ? `Registration failed (HTTP ${axiosError.response.status})`
-          : "Unable to reach the server. Please try again.")
+        "Registration failed"
     );
   }
 });
 
-// Slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
     logout: (state) => {
       state.user = null;
+      state.error = null;
       state.guestId = `guest_${new Date().getTime()}`;
       if (typeof window !== "undefined") {
         localStorage.removeItem("userInfo");
@@ -136,10 +166,12 @@ const authSlice = createSlice({
         localStorage.setItem("guestId", state.guestId);
       }
     },
+    clearAuthError: (state) => {
+      state.error = null;
+    },
   },
   extraReducers: (builder) => {
     builder
-      // Login cases
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -153,8 +185,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload || "Login failed";
       })
-
-      // Register cases
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -171,5 +201,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout, generateNewGuestId } = authSlice.actions;
+export const { logout, generateNewGuestId, clearAuthError } = authSlice.actions;
 export default authSlice.reducer;

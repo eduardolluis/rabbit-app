@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import login from "@/public/assets/login.webp";
@@ -14,37 +15,34 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
+  const dispatch = useDispatch();
 
   const { user, guestId, loading, error } = useAppSelector(
     (state) => state.auth
   );
   const { cart } = useAppSelector((state) => state.cart);
-  const dispatch = useDispatch();
 
   const redirect = searchParams.get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
-    if (user) {
-      if (cart?.products.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, userId: user._id || user.id })).then(() => {
-          router.push(isCheckoutRedirect ? "/checkout" : "/");
-        });
-      } else {
-        router.push(isCheckoutRedirect ? "/checkout" : "/");
-      }
-    }
-  }, [user, guestId, cart, router, isCheckoutRedirect, dispatch]);
+    if (!user) return;
 
-  const handleSubmit = (e) => {
+    const destination = isCheckoutRedirect ? "/checkout" : redirect || "/";
+
+    if (cart?.products?.length > 0 && guestId) {
+      dispatch(mergeCart({ guestId, userId: user._id || user.id })).finally(
+        () => router.push(destination)
+      );
+    } else {
+      router.push(destination);
+    }
+  }, [user, guestId, cart, router, redirect, isCheckoutRedirect, dispatch]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!email || !password) {
-      alert("Please fill in all fields");
-      return;
-    }
-
-    dispatch(loginUser({ email, password }));
+    if (!email || !password) return;
+    await dispatch(loginUser({ email, password }));
   };
 
   return (
@@ -57,9 +55,10 @@ const Login = () => {
           <div className="flex justify-center mb-6">
             <h2 className="text-xl font-medium">Rabbit</h2>
           </div>
-          <h2 className="text-2xl font-bold text-center mb-6">Hey there! 👋🏼</h2>
+
+          <h1 className="text-2xl font-bold text-center mb-6">Welcome back</h1>
           <p className="text-center mb-6">
-            Enter your username and password to Login.
+            Enter your email and password to sign in.
           </p>
 
           {error && (
@@ -80,6 +79,7 @@ const Login = () => {
               disabled={loading}
             />
           </div>
+
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2">Password</label>
             <input
@@ -92,6 +92,7 @@ const Login = () => {
               disabled={loading}
             />
           </div>
+
           <button
             type="submit"
             disabled={loading}
@@ -99,8 +100,9 @@ const Login = () => {
           >
             {loading ? "Signing In..." : "Sign In"}
           </button>
+
           <p className="mt-6 text-center text-sm">
-            {"Don't have an account?"} <br />
+            Don&apos;t have an account? <br />
             <Link
               href={`/register?redirect=${encodeURIComponent(redirect)}`}
               className="text-blue-500 hover:text-blue-700 transition-colors duration-200"
@@ -110,7 +112,8 @@ const Login = () => {
           </p>
         </form>
       </div>
-      <div className="hidden md:block w-1/2 ">
+
+      <div className="hidden md:block w-1/2">
         <div className="h-full flex flex-col justify-center items-center">
           <Image
             src={login}
