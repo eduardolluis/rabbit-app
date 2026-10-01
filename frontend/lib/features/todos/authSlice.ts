@@ -4,6 +4,7 @@ import axios, { AxiosError } from "axios";
 // Tipos
 interface User {
   id?: string;
+  _id?: string;
   email: string;
   name?: string;
   role?: string;
@@ -108,7 +109,9 @@ export const registerUser = createAsyncThunk<
     return rejectWithValue(
       axiosError.response?.data?.message ||
         axiosError.response?.data?.error ||
-        "Redirecting to Home Page"
+        (axiosError.response?.status
+          ? `Registration failed (HTTP ${axiosError.response.status})`
+          : "Unable to reach the server. Please try again.")
     );
   }
 });
@@ -159,6 +162,7 @@ const authSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action: PayloadAction<User>) => {
         state.loading = false;
         state.user = action.payload;
+        state.error = null;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
