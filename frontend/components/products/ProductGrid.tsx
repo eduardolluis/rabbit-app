@@ -53,6 +53,9 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                 <img
                   src={product.images[0].url}
                   alt={product.name}
+                  onError={(e) => {
+                    e.currentTarget.src = "/product-placeholder.svg";
+                  }}
                   className="w-full h-full object-cover rounded-lg"
                 />
               ) : (
