@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820">
+  <rect width="1600" height="820" fill="#ffffff"/>
+  <rect width="1600" height="48" fill="#f13212"/>
+  <text x="800" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">We ship worldwide - Fast and reliable shipping!</text>
+  <text x="1450" y="30" font-family="Arial, sans-serif" font-size="16" fill="#fff">849 519 1571</text>
+  <rect y="48" width="1600" height="74" fill="#fff"/>
+  <line x1="0" y1="122" x2="1600" y2="122" stroke="#e5e7eb"/>
+  <text x="115" y="92" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Rabbit</text>
+  <text x="640" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">MEN</text>
+  <text x="715" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">WOMEN</text>
+  <text x="805" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">TOP WEAR</text>
+  <text x="920" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">BOTTOM WEAR</text>
+
+  <rect x="115" y="150" width="340" height="200" rx="8" fill="#fff" stroke="#e5e7eb"/>
+  <text x="142" y="205" font-family="Arial, sans-serif" font-size="33" font-weight="700" fill="#111827">Eduardo</text>
+  <text x="142" y="246" font-family="Arial, sans-serif" font-size="18" fill="#64748b">user@example.com</text>
+  <rect x="142" y="280" width="285" height="44" rx="6" fill="#ff3341"/>
+  <text x="284" y="308" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#fff">Logout</text>
+
+  <text x="510" y="200" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#111827">My Orders</text>
+  <rect x="510" y="235" width="975" height="108" rx="10" fill="#fff" stroke="#e5e7eb"/>
+  <rect x="510" y="235" width="975" height="48" rx="10" fill="#f3f4f6"/>
+  <text x="540" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">IMAGE</text>
+  <text x="650" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">ORDER ID</text>
+  <text x="795" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">CREATED</text>
+  <text x="935" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">SHIPPING ADDRESS</text>
+  <text x="1170" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">ITEMS</text>
+  <text x="1280" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">PRICE</text>
+  <text x="1385" y="266" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">STATUS</text>
+  <text x="997" y="323" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#64748b">You have no orders</text>
+</svg>
