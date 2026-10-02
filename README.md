@@ -1,25 +1,31 @@
 # Rabbit App
 
-A full-stack e-commerce application with a **Next.js frontend** and an **Express/MongoDB backend**.
+A modern full-stack fashion e-commerce application built with **Next.js, React, TypeScript, Redux Toolkit, Express, and MongoDB**. Rabbit includes product discovery, authentication, cart management, checkout, order history, payment integration, admin workflows, and responsive storefront UI.
+
+**Live Demo:** https://rabbit-app-coral.vercel.app/
 
 ## Features
 
-- Product catalog and product routes
-- User authentication
-- Shopping cart
-- Checkout and orders
-- PayPal integration
-- Product image uploads with Cloudinary
-- Admin user, product, and order routes
-- Newsletter subscription endpoint
-- Redux-based frontend state management
+- Responsive fashion storefront
+- Product catalog with filters and search
+- Product details and similar products
+- User registration and login
+- Persistent shopping cart
+- Checkout flow and order summary
+- PayPal integration with demo fallback
+- Customer profile and order history
+- Order details and delivery/payment status
+- Admin user, product, and order management
+- Cloudinary product image uploads
+- Redux Toolkit state management
+- Mobile and desktop responsive design
 
 ## Tech Stack
 
 ### Frontend
 - Next.js 15
 - React 19
-- TypeScript
+- TypeScript / JavaScript
 - Redux Toolkit
 - Tailwind CSS
 - Axios
@@ -29,19 +35,46 @@ A full-stack e-commerce application with a **Next.js frontend** and an **Express
 - Node.js
 - Express 5
 - MongoDB / Mongoose
-- JWT
+- JWT authentication
 - bcrypt
 - Cloudinary
 - Multer
 
 ## Screenshots
 
-<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/2b21d3d7-6563-4715-bf93-e4cad7a0074c" />
-<img width="1374" alt="Rabbit App" src="https://github.com/user-attachments/assets/8161e4d8-99cd-458b-9e3d-44c5d72f9233" />
-<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/39e2311d-2f3c-44a4-8e85-99d53c74c244" />
-<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/dcb83317-a1f7-4e49-b988-bc8cf020572c" />
-<img width="1440" alt="Rabbit App" src="https://github.com/user-attachments/assets/e1ece08b-e8a8-4444-934c-946dc35e2f41" />
-<img width="360" alt="Rabbit App mobile view" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
+### Storefront
+
+<img width="1440" alt="Rabbit storefront" src="https://github.com/user-attachments/assets/2b21d3d7-6563-4715-bf93-e4cad7a0074c" />
+
+<img width="1374" alt="Rabbit product collection" src="https://github.com/user-attachments/assets/8161e4d8-99cd-458b-9e3d-44c5d72f9233" />
+
+<img width="1440" alt="Rabbit product view" src="https://github.com/user-attachments/assets/39e2311d-2f3c-44a4-8e85-99d53c74c244" />
+
+<img width="1440" alt="Rabbit cart" src="https://github.com/user-attachments/assets/dcb83317-a1f7-4e49-b988-bc8cf020572c" />
+
+### Profile & Orders
+
+<img width="1440" alt="Rabbit profile and order history" src="./docs/profile.svg" />
+
+### Checkout
+
+<img width="1440" alt="Rabbit checkout flow" src="./docs/checkout.svg" />
+
+### Order Details
+
+<img width="1440" alt="Rabbit order details" src="./docs/order-details.svg" />
+
+### Mobile
+
+<img width="360" alt="Rabbit mobile view" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
+
+## Project Structure
+
+```text
+rabbit-app/
+├── frontend/   # Next.js storefront and admin UI
+└── backend/    # Express API, MongoDB models and business logic
+```
 
 ## Run Locally
 
@@ -52,7 +85,9 @@ git clone https://github.com/eduardolluis/rabbit-app.git
 cd rabbit-app
 ```
 
-Install and run the frontend from `frontend/`, and install/run the API from `backend/`. Configure the required MongoDB, JWT, Cloudinary, and payment environment variables before using the full application.
+Install and run the frontend from `frontend/`, and install/run the API from `backend/`.
+
+Configure the required environment variables for MongoDB, JWT, Cloudinary, and PayPal before using the complete production-backed flow.
 
 ---
 
