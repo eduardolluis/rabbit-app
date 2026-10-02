@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect width="1600" height="48" fill="#f13212"/>
+  <text x="800" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">We ship worldwide - Fast and reliable shipping!</text>
+  <text x="1450" y="30" font-family="Arial, sans-serif" font-size="16" fill="#fff">849 519 1571</text>
+  <rect y="48" width="1600" height="74" fill="#fff"/>
+  <line x1="0" y1="122" x2="1600" y2="122" stroke="#e5e7eb"/>
+  <text x="115" y="92" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Rabbit</text>
+  <text x="650" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">MEN</text>
+  <text x="725" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">WOMEN</text>
+  <text x="815" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">TOP WEAR</text>
+  <text x="930" y="92" font-family="Arial, sans-serif" font-size="16" fill="#263244">BOTTOM WEAR</text>
+
+  <text x="140" y="220" font-family="Arial, sans-serif" font-size="31" fill="#111827">CHECKOUT</text>
+  <text x="140" y="278" font-family="Arial, sans-serif" font-size="20" fill="#111827">Contact Details</text>
+  <text x="140" y="325" font-family="Arial, sans-serif" font-size="16" fill="#475569">Email</text>
+  <rect x="140" y="337" width="610" height="52" rx="4" fill="#fff" stroke="#111"/>
+  <text x="154" y="369" font-family="Arial, sans-serif" font-size="17" fill="#111827">user@example.com</text>
+  <text x="140" y="435" font-family="Arial, sans-serif" font-size="20" fill="#111827">Delivery</text>
+
+  <text x="140" y="482" font-family="Arial, sans-serif" font-size="16" fill="#475569">First Name</text>
+  <text x="455" y="482" font-family="Arial, sans-serif" font-size="16" fill="#475569">Last Name</text>
+  <rect x="140" y="493" width="295" height="52" rx="4" fill="#fff" stroke="#111"/>
+  <rect x="455" y="493" width="295" height="52" rx="4" fill="#fff" stroke="#111"/>
+
+  <text x="140" y="586" font-family="Arial, sans-serif" font-size="16" fill="#475569">Address</text>
+  <rect x="140" y="597" width="610" height="52" rx="4" fill="#fff" stroke="#111"/>
+
+  <text x="140" y="690" font-family="Arial, sans-serif" font-size="16" fill="#475569">City</text>
+  <text x="455" y="690" font-family="Arial, sans-serif" font-size="16" fill="#475569">Postal Code</text>
+  <rect x="140" y="701" width="295" height="52" rx="4" fill="#fff" stroke="#111"/>
+  <rect x="455" y="701" width="295" height="52" rx="4" fill="#fff" stroke="#111"/>
+
+  <rect x="820" y="165" width="640" height="570" rx="10" fill="#f8fafc"/>
+  <text x="850" y="215" font-family="Arial, sans-serif" font-size="24" fill="#111827">Order Summary</text>
+  <line x1="850" y1="243" x2="1430" y2="243" stroke="#111"/>
+
+  <rect x="850" y="275" width="90" height="105" rx="5" fill="#d9dee5"/>
+  <rect x="875" y="300" width="40" height="55" rx="3" fill="#64748b"/>
+  <text x="960" y="300" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#111827">Slim-Fit Stretch Shirt</text>
+  <text x="960" y="330" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Size: M</text>
+  <text x="960" y="355" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Color: Black</text>
+  <text x="960" y="380" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Quantity: 1</text>
+  <text x="1405" y="300" font-family="Arial, sans-serif" font-size="19" text-anchor="end" fill="#111827">$29.99</text>
+
+  <line x1="850" y1="398" x2="1430" y2="398" stroke="#111"/>
+  <text x="850" y="460" font-family="Arial, sans-serif" font-size="20" fill="#111827">Subtotal</text>
+  <text x="1405" y="460" font-family="Arial, sans-serif" font-size="20" text-anchor="end" fill="#111827">$29.99</text>
+  <text x="850" y="515" font-family="Arial, sans-serif" font-size="20" fill="#111827">Shipping</text>
+  <text x="1405" y="515" font-family="Arial, sans-serif" font-size="20" text-anchor="end" fill="#111827">Free</text>
+  <line x1="850" y1="545" x2="1430" y2="545" stroke="#111"/>
+  <text x="850" y="600" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#111827">Total</text>
+  <text x="1405" y="600" font-family="Arial, sans-serif" font-size="21" font-weight="700" text-anchor="end" fill="#111827">$29.99</text>
+
+  <rect x="140" y="805" width="610" height="58" rx="5" fill="#000"/>
+  <text x="445" y="841" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#fff">Continue to Payment</text>
+</svg>
