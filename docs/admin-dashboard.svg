@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="260" height="900" fill="#111827"/>
+  <text x="28" y="58" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#fff">Rabbit</text>
+  <text x="130" y="112" font-family="Arial,sans-serif" font-size="22" font-weight="600" text-anchor="middle" fill="#fff">Admin Dashboard</text>
+  <rect x="20" y="150" width="220" height="48" rx="7" fill="#374151"/><text x="55" y="181" font-family="Arial,sans-serif" font-size="18" fill="#fff">Users</text>
+  <rect x="20" y="210" width="220" height="48" rx="7" fill="#1f2937"/><text x="55" y="241" font-family="Arial,sans-serif" font-size="18" fill="#d1d5db">Products</text>
+  <rect x="20" y="270" width="220" height="48" rx="7" fill="#1f2937"/><text x="55" y="301" font-family="Arial,sans-serif" font-size="18" fill="#d1d5db">Orders</text>
+  <rect x="20" y="330" width="220" height="48" rx="7" fill="#1f2937"/><text x="55" y="361" font-family="Arial,sans-serif" font-size="18" fill="#d1d5db">Shop</text>
+  <rect x="20" y="820" width="220" height="48" rx="7" fill="#ef4444"/><text x="130" y="851" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#fff">Logout</text>
+  <text x="315" y="72" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#111827">Admin Dashboard</text>
+  
+  <rect x="315" y="120" width="360" height="130" rx="12" fill="#fff" stroke="#e5e7eb"/>
+  <text x="345" y="165" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#111827">Revenue</text>
+  <text x="345" y="215" font-family="Arial,sans-serif" font-size="34" fill="#111827">$4,829.50</text>
+  <rect x="705" y="120" width="360" height="130" rx="12" fill="#fff" stroke="#e5e7eb"/>
+  <text x="735" y="165" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#111827">Total Orders</text>
+  <text x="735" y="215" font-family="Arial,sans-serif" font-size="34" fill="#111827">128</text>
+  <text x="930" y="218" font-family="Arial,sans-serif" font-size="16" fill="#2563eb">Manage Orders</text>
+  <rect x="1095" y="120" width="360" height="130" rx="12" fill="#fff" stroke="#e5e7eb"/>
+  <text x="1125" y="165" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#111827">Total Products</text>
+  <text x="1125" y="215" font-family="Arial,sans-serif" font-size="34" fill="#111827">42</text>
+  <text x="1290" y="218" font-family="Arial,sans-serif" font-size="16" fill="#2563eb">Manage Products</text>
+  <text x="315" y="315" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#111827">Recent Orders</text>
+  <rect x="315" y="345" width="1140" height="48" fill="#f3f4f6"/>
+  <text x="345" y="375" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#334155">ORDER ID</text>
+  <text x="665" y="375" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#334155">USER</text>
+  <text x="980" y="375" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#334155">TOTAL PRICE</text>
+  <text x="1270" y="375" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#334155">STATUS</text>
+  <text x="345" y="430" font-family="Arial,sans-serif" font-size="16" fill="#475569">#ORD-1024</text>
+  <text x="665" y="430" font-family="Arial,sans-serif" font-size="16" fill="#475569">Demo Customer</text>
+  <text x="980" y="430" font-family="Arial,sans-serif" font-size="16" fill="#475569">$89.99</text>
+  <text x="1270" y="430" font-family="Arial,sans-serif" font-size="16" fill="#475569">Processing</text>
+  </svg>
