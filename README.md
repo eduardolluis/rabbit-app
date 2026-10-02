@@ -68,6 +68,26 @@ A modern full-stack fashion e-commerce application built with **Next.js, React, 
 
 <img width="360" alt="Rabbit mobile view" src="https://github.com/user-attachments/assets/55b63613-1d96-47ad-85de-1b3a654616c3" />
 
+## Admin Panel
+
+Rabbit also includes a dedicated admin experience for managing the storefront.
+
+### Dashboard
+
+<img width="1440" alt="Rabbit admin dashboard" src="./docs/admin-dashboard.svg" />
+
+### User Management
+
+<img width="1440" alt="Rabbit admin user management" src="./docs/admin-users.svg" />
+
+### Product Management
+
+<img width="1440" alt="Rabbit admin product management" src="./docs/admin-products.svg" />
+
+### Order Management
+
+<img width="1440" alt="Rabbit admin order management" src="./docs/admin-orders.svg" />
+
 ## Project Structure
 
 ```text
