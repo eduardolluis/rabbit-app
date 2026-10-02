@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect width="1600" height="48" fill="#f13212"/>
+  <text x="800" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">We ship worldwide - Fast and reliable shipping!</text>
+  <text x="1450" y="30" font-family="Arial, sans-serif" font-size="16" fill="#fff">849 519 1571</text>
+  <rect y="48" width="1600" height="74" fill="#fff"/>
+  <line x1="0" y1="122" x2="1600" y2="122" stroke="#e5e7eb"/>
+  <text x="115" y="92" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Rabbit</text>
+
+  <text x="120" y="205" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#111827">Order Details</text>
+  <rect x="120" y="240" width="1360" height="530" rx="10" fill="#fff" stroke="#e5e7eb"/>
+
+  <text x="155" y="300" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Order ID: #DEMO-20261001</text>
+  <text x="155" y="335" font-family="Arial, sans-serif" font-size="16" fill="#64748b">October 1, 2026</text>
+  <rect x="1280" y="275" width="110" height="34" rx="17" fill="#dcfce7"/>
+  <text x="1335" y="297" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#15803d">Approved</text>
+  <rect x="1280" y="320" width="110" height="34" rx="17" fill="#fef3c7"/>
+  <text x="1335" y="342" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#a16207">Pending</text>
+
+  <text x="155" y="420" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Payment Info</text>
+  <text x="155" y="455" font-family="Arial, sans-serif" font-size="16" fill="#334155">Payment Method: PayPal</text>
+  <text x="155" y="485" font-family="Arial, sans-serif" font-size="16" fill="#334155">Status: Paid</text>
+
+  <text x="590" y="420" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Shipping Info</text>
+  <text x="590" y="455" font-family="Arial, sans-serif" font-size="16" fill="#334155">Shipping Method: Standard</text>
+  <text x="590" y="485" font-family="Arial, sans-serif" font-size="16" fill="#334155">Address: Santo Domingo, Dominican Republic</text>
+
+  <text x="155" y="570" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Products</text>
+  <rect x="155" y="600" width="1285" height="48" fill="#f3f4f6"/>
+  <text x="190" y="630" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">NAME</text>
+  <text x="760" y="630" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">UNIT PRICE</text>
+  <text x="1015" y="630" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">QUANTITY</text>
+  <text x="1260" y="630" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">TOTAL</text>
+  <line x1="155" y1="705" x2="1440" y2="705" stroke="#e5e7eb"/>
+  <rect x="185" y="660" width="46" height="46" rx="5" fill="#cbd5e1"/>
+  <text x="250" y="690" font-family="Arial, sans-serif" font-size="16" fill="#2563eb">Slim-Fit Stretch Shirt</text>
+  <text x="785" y="690" font-family="Arial, sans-serif" font-size="16" fill="#334155">$29.99</text>
+  <text x="1050" y="690" font-family="Arial, sans-serif" font-size="16" fill="#334155">1</text>
+  <text x="1280" y="690" font-family="Arial, sans-serif" font-size="16" fill="#334155">$29.99</text>
+
+  <text x="155" y="745" font-family="Arial, sans-serif" font-size="16" fill="#2563eb">Back to my orders</text>
+</svg>
